@@ -20,7 +20,11 @@ namespace AE_Environment.Model
         MMeshIndex,//修正的破碎度
         PAFRACIndex,//面积周长破碎度
         CWEDIndex,
-        TECIIndex
+        TECIIndex,
+        NumberOfPatch,
+        PatchDensity,
+        MeanPatchSize
+
     }
     /// <summary>
     /// 景观指标
@@ -37,7 +41,10 @@ namespace AE_Environment.Model
         MMeshIndex,//修正的破碎度
         PAFRACIndex,//面积周长破碎度
         CWEDIndex,
-        TECIIndex
+        TECIIndex,
+        NumberOfPatch,
+        PatchDensity,
+        MeanPatchSize
 
     }
 }

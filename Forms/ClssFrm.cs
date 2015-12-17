@@ -207,6 +207,16 @@ namespace AE_Environment.Forms
                     case PatchClassIndex.PAFRACIndex:
                         patchClassCac.Add(new Model.FunctionIndexes.CPAFACIndex(codeValues));
                         break;
+                    case PatchClassIndex.NumberOfPatch:
+                        patchClassCac.Add(new Model.FunctionIndexes.CNumberOfPatch(codeValues));
+                        break;
+                    case PatchClassIndex.PatchDensity:
+                        patchClassCac.Add(new Model.FunctionIndexes.CPatchDensity(codeValues));
+                        break;
+                    case PatchClassIndex.MeanPatchSize:
+                        patchClassCac.Add(new Model.FunctionIndexes.CMeanPatchSize(codeValues));
+                        break;
+
                 }
             }
            
@@ -615,6 +625,48 @@ namespace AE_Environment.Forms
             MainForm.dt_class= classCaclute.result_dt;
             MessageBox.Show("保存成功！!");
             this.Close();
+        }
+
+        private void checkBox_NP_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox_NP.Checked)
+            {
+                patchClassIndexes.Add(PatchClassIndex.NumberOfPatch);
+            }
+            else
+            {
+
+                patchClassIndexes.Remove(PatchClassIndex.NumberOfPatch);
+
+            }
+        }
+
+        private void checkBox_PD_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox_PD.Checked)
+            {
+                patchClassIndexes.Add(PatchClassIndex.PatchDensity);
+            }
+            else
+            {
+
+                patchClassIndexes.Remove(PatchClassIndex.PatchDensity);
+            }
+        }
+
+        private void checkBox_MPS_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox_MPS.Checked)
+            {
+                patchClassIndexes.Add(PatchClassIndex.MeanPatchSize);
+
+            }
+            else
+            {
+
+                patchClassIndexes.Remove(PatchClassIndex.MeanPatchSize);
+
+            }
         }    
         
     }

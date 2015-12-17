@@ -494,5 +494,22 @@ namespace AE_Environment.Forms
 
         }
 
+        private void checkBox_NP_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox_PD_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+       
+
+        private void checkBox_MPS_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

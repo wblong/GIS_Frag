@@ -62,6 +62,10 @@
             this.listView1 = new System.Windows.Forms.ListView();
             this.btn_OK = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.checkBox_NP = new System.Windows.Forms.CheckBox();
+            this.checkBox_MPS = new System.Windows.Forms.CheckBox();
+            this.checkBox_PD = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -71,6 +75,7 @@
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -135,6 +140,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(14, 145);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -435,6 +441,51 @@
             this.progressBar1.Size = new System.Drawing.Size(362, 23);
             this.progressBar1.TabIndex = 26;
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.checkBox_NP);
+            this.tabPage4.Controls.Add(this.checkBox_MPS);
+            this.tabPage4.Controls.Add(this.checkBox_PD);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(354, 126);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "聚集度";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // checkBox_NP
+            // 
+            this.checkBox_NP.AutoSize = true;
+            this.checkBox_NP.Location = new System.Drawing.Point(34, 26);
+            this.checkBox_NP.Name = "checkBox_NP";
+            this.checkBox_NP.Size = new System.Drawing.Size(96, 16);
+            this.checkBox_NP.TabIndex = 3;
+            this.checkBox_NP.Text = "斑块个数(NP)";
+            this.checkBox_NP.UseVisualStyleBackColor = true;
+            this.checkBox_NP.CheckedChanged += new System.EventHandler(this.checkBox_NP_CheckedChanged);
+            // 
+            // checkBox_MPS
+            // 
+            this.checkBox_MPS.AutoSize = true;
+            this.checkBox_MPS.Location = new System.Drawing.Point(34, 86);
+            this.checkBox_MPS.Name = "checkBox_MPS";
+            this.checkBox_MPS.Size = new System.Drawing.Size(138, 16);
+            this.checkBox_MPS.TabIndex = 5;
+            this.checkBox_MPS.Text = "平均斑块面积（MPS）";
+            this.checkBox_MPS.UseVisualStyleBackColor = true;
+            this.checkBox_MPS.CheckedChanged += new System.EventHandler(this.checkBox_MPS_CheckedChanged);
+            // 
+            // checkBox_PD
+            // 
+            this.checkBox_PD.AutoSize = true;
+            this.checkBox_PD.Location = new System.Drawing.Point(34, 56);
+            this.checkBox_PD.Name = "checkBox_PD";
+            this.checkBox_PD.Size = new System.Drawing.Size(108, 16);
+            this.checkBox_PD.TabIndex = 4;
+            this.checkBox_PD.Text = "斑块密度（PD）";
+            this.checkBox_PD.UseVisualStyleBackColor = true;
+            this.checkBox_PD.CheckedChanged += new System.EventHandler(this.checkBox_PD_CheckedChanged);
+            // 
             // ClssFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -446,7 +497,7 @@
             this.MaximizeBox = false;
             this.Name = "ClssFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "类指标计算";
+            this.Text = "斑块类形指标";
             this.Load += new System.EventHandler(this.ClssFrm_Load);
             this.panel1.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
@@ -462,6 +513,8 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -501,6 +554,10 @@
         private System.Windows.Forms.Button bt_save;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.CheckBox checkBox_NP;
+        private System.Windows.Forms.CheckBox checkBox_MPS;
+        private System.Windows.Forms.CheckBox checkBox_PD;
 
     }
 }
