@@ -147,6 +147,18 @@ namespace AE_Environment.Forms
                         case PatchLandIndex.UMeshIndex:
                             patchLandCac.Add(new Model.FunctionIndexes.LUMeshIndex(limitValue));
                             break;
+                        case PatchLandIndex.NumberOfPatch:
+                            patchLandCac.Add(new Model.FunctionIndexes.LNumberOfPatch());
+                            break;
+                        case PatchLandIndex.PatchDensity:
+                            patchLandCac.Add(new Model.FunctionIndexes.LPatchDensity());
+                            break;
+                        case PatchLandIndex.MeanPatchSize:
+                            patchLandCac.Add(new Model.FunctionIndexes.LMeanPatchSize());
+                            break;
+                        case PatchLandIndex.MMeshIndex:
+                            patchLandCac.Add(new Model.FunctionIndexes.LMMeshIndex((pLayer as IFeatureLayer).FeatureClass));
+                            break;
                         
 
                     }
@@ -362,16 +374,13 @@ namespace AE_Environment.Forms
             if (checkBox_MMI.Checked)
             {
                 btn_Config.Enabled = true;
-                if (!MainForm.landscapeParamInfo.landIndex.Contains(LandscapeIndex.MMeshIndex))
-                {
-                    MainForm.landscapeParamInfo.landIndex.Add(LandscapeIndex.MMeshIndex);
-                }
+                patchLandIndexes.Add(PatchLandIndex.MMeshIndex);
             }
             else
             {
 
                 btn_Config.Enabled = false;
-                MainForm.landscapeParamInfo.landIndex.Remove(LandscapeIndex.MMeshIndex);
+                patchLandIndexes.Remove(PatchLandIndex.MMeshIndex);
             }
         }
 
@@ -496,18 +505,45 @@ namespace AE_Environment.Forms
 
         private void checkBox_NP_CheckedChanged(object sender, EventArgs e)
         {
+            if (checkBox_NP.Checked)
+            {
+                patchLandIndexes.Add(PatchLandIndex.NumberOfPatch);
 
+            }
+            else
+            {
+
+                patchLandIndexes.Remove(PatchLandIndex.NumberOfPatch);
+            }
         }
 
         private void checkBox_PD_CheckedChanged(object sender, EventArgs e)
         {
+            if (checkBox_PD.Checked)
+            {
+                patchLandIndexes.Add(PatchLandIndex.PatchDensity);
+            }
+            else
+            {
 
+                patchLandIndexes.Remove(PatchLandIndex.PatchDensity);
+            }
         }
 
        
 
         private void checkBox_MPS_CheckedChanged(object sender, EventArgs e)
         {
+            if (checkBox_MPS.Checked)
+            {
+                patchLandIndexes.Add(PatchLandIndex.MeanPatchSize);
+
+            }
+            else
+            {
+
+                patchLandIndexes.Remove(PatchLandIndex.MeanPatchSize);
+            }
 
         }
 

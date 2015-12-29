@@ -177,32 +177,28 @@ namespace AE_Environment.Model
 
             if (zone_FC!=null)
             {
+
                 string objectFiled = "";
                 objectFiled = zone_FC.Fields.Field[0].Name;
-                pQueryDef.SubFields = "DISTINCT(" + pDataset.Name + "." + zidField + ")," + (zone_FC as IDataset).Name + "." + zidField + "," + (zone_FC as IDataset).Name + "."+objectFiled;
+                pQueryDef.SubFields = (zone_FC as IDataset).Name + "."+objectFiled;
                 //pQueryDef.SubFields = pDataset.Name + "." + zidField + "," + (zone_FC as IDataset).Name + "." + zidField + "," + (zone_FC as IDataset).Name + ".OBJECTID";
-                pQueryDef.Tables = pDataset.Name + " INNER JOIN " + (zone_FC as IDataset).Name + " ON " + pDataset.Name + "." + zidField + "=" + (zone_FC as IDataset).Name + "." + zidField;
-                pCursor = pQueryDef.Evaluate();
-                pRow = pCursor.NextRow();
-                Application.DoEvents();
-                while (pRow != null)
+                pQueryDef.Tables =  (zone_FC as IDataset).Name;
+                for (int i = 0; i < zoneValue.Count; i++)
                 {
-
-                    object obj = pRow.get_Value(0);
-                    object obj1 = pRow.get_Value(2);
-                  //  zoneValue.Add(obj.ToString());
-                    zoneObjectID.Add((int)obj1);
+                    pQueryDef.WhereClause = zidField + " = " + "'" + zoneValue[i]+"'";
+                    pCursor = pQueryDef.Evaluate();
                     pRow = pCursor.NextRow();
-//                     progress.Invoke((MethodInvoker)delegate()
-//                     {
-//                         if (progress.Value < progress.Maximum)
-//                         {
-//                             progress.Value++;
-//                         }
-//                     });
-                    if (progress.Value < progress.Maximum)
+
+                    while (pRow != null)
                     {
-                        progress.Value++;
+                        object obj1 = pRow.get_Value(0);
+                        //  zoneValue.Add(obj.ToString());
+                        zoneObjectID.Add((int)obj1);
+                        pRow = pCursor.NextRow();
+                        if (progress.Value < progress.Maximum)
+                        {
+                            progress.Value++;
+                        }
                     }
                 }
             }

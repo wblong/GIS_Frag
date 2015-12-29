@@ -160,9 +160,9 @@
             this.checkBox_MAI.AutoSize = true;
             this.checkBox_MAI.Location = new System.Drawing.Point(39, 49);
             this.checkBox_MAI.Name = "checkBox_MAI";
-            this.checkBox_MAI.Size = new System.Drawing.Size(126, 16);
+            this.checkBox_MAI.Size = new System.Drawing.Size(150, 16);
             this.checkBox_MAI.TabIndex = 2;
-            this.checkBox_MAI.Text = "最大面积占比(LPI)";
+            this.checkBox_MAI.Text = "最大斑块面积占比(LPI)";
             this.checkBox_MAI.UseVisualStyleBackColor = true;
             this.checkBox_MAI.CheckedChanged += new System.EventHandler(this.checkBox_MAI_CheckedChanged);
             // 
@@ -276,7 +276,6 @@
             this.tabPage4.TabIndex = 4;
             this.tabPage4.Text = "聚集度";
             this.tabPage4.UseVisualStyleBackColor = true;
-            
             // 
             // checkBox_NP
             // 

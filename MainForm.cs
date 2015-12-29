@@ -532,6 +532,12 @@ namespace AE_Environment
 
         }
         #endregion
+
+        private void 破碎化ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmFragstat fragstats = new frmFragstat(m_mapControl);
+            fragstats.ShowDialog();
+        }
         
     }
 }
