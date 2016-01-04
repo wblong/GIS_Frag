@@ -108,9 +108,6 @@
             // 
             this.comboZone.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboZone.FormattingEnabled = true;
-            this.comboZone.Items.AddRange(new object[] {
-            "一级类别",
-            "二级类别"});
             this.comboZone.Location = new System.Drawing.Point(83, 64);
             this.comboZone.Name = "comboZone";
             this.comboZone.Size = new System.Drawing.Size(256, 20);
