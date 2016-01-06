@@ -538,6 +538,36 @@ namespace AE_Environment
             frmFragstat fragstats = new frmFragstat(m_mapControl);
             fragstats.ShowDialog();
         }
+
+        private void 赋值ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LayerFrm lf = new LayerFrm(m_mapControl);
+            lf.ShowDialog();
+            ILayer pLayer = lf.PLayer;
+            IFeatureClass pFeatureClass=(pLayer as IFeatureLayer).FeatureClass;
+            IDataset pDataset=pFeatureClass as IDataset;
+            IEngineEditor pEngineEditor = new EngineEditorClass();
+            //开始编辑
+            pEngineEditor.StartEditing(pDataset.Workspace, axMapControl1.Map);
+            //开始操作
+            pEngineEditor.StartOperation();
+            //设置目标图层
+            IEngineEditLayers pEditLayer = pEngineEditor as IEngineEditLayers;
+            pEditLayer.SetTargetLayer(pLayer as IFeatureLayer,0);
+            //设置当前任务
+            pEngineEditor.CurrentTask = new Utilities.CalculatContourTask() as IEngineEditTask;
+            //执行绘制操作
+            ICommand pSketch = new ControlsEditingSketchToolClass();
+            pSketch.OnCreate(axMapControl1.Object);
+            //pSketch.OnClick();
+            axMapControl1.CurrentTool = pSketch as ITool;
+            if (pEngineEditor.EditState==esriEngineEditState.esriEngineStateEditing)
+            {
+                pEngineEditor.StopEditing(true);
+
+            }
+
+        }
         
     }
 }
